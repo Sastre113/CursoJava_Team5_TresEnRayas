@@ -17,6 +17,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.SwingConstants;
 
+
 /**
  * @author Miguel A. Sastre
  *
@@ -161,7 +162,7 @@ public class InterfazGrafica extends JFrame {
 		panel_2_1.setBounds(10, 169, 260, 100);
 		panel_1.add(panel_2_1);
 		panel_2_1.setLayout(null);
-		
+
 		JLabel lblJ2 = new JLabel("Jugador 2");
 		lblJ2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblJ2.setBounds(10, 11, 70, 20);
