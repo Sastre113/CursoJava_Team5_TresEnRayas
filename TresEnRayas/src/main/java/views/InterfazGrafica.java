@@ -28,6 +28,7 @@ public class InterfazGrafica extends JFrame {
 	private JTextField textFieldJ1;
 	private final ButtonGroup bgHumCPUJ1 = new ButtonGroup();
 	private final ButtonGroup bgHumCPUJ2 = new ButtonGroup();
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 
 
@@ -57,48 +58,57 @@ public class InterfazGrafica extends JFrame {
 		
 		// Fila 0
 		JButton btn00 = new JButton("");
+		buttonGroup.add(btn00);
 		btn00.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn00.setBounds(10, 11, 90, 90);
 		panel.add(btn00);
 		
 		JButton btn01 = new JButton("");
+		buttonGroup.add(btn01);
 		btn01.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn01.setBounds(94, 11, 90, 90);
 		panel.add(btn01);
 		
 		JButton btn02 = new JButton("");
+		buttonGroup.add(btn02);
 		btn02.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn02.setBounds(180, 11, 90, 90);
 		panel.add(btn02);
 		
 		// Fila 1
 		JButton btn10 = new JButton("");
+		buttonGroup.add(btn10);
 		btn10.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn10.setBounds(10, 96, 90, 90);
 		panel.add(btn10);
 		
 		JButton btn11 = new JButton("");
+		buttonGroup.add(btn11);
 		btn11.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn11.setBounds(94, 96, 90, 90);
 		panel.add(btn11);
 		
 		JButton btn12 = new JButton("");
+		buttonGroup.add(btn12);
 		btn12.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn12.setBounds(180, 96, 90, 90);
 		panel.add(btn12);
 		
 		// Fila 2
 		JButton btn20 = new JButton("");
+		buttonGroup.add(btn20);
 		btn20.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn20.setBounds(10, 179, 90, 90);
 		panel.add(btn20);
 		
 		JButton btn21 = new JButton("");
+		buttonGroup.add(btn21);
 		btn21.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn21.setBounds(94, 179, 90, 90);
 		panel.add(btn21);
 		
 		JButton btn22 = new JButton("");
+		buttonGroup.add(btn22);
 		btn22.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn22.setBounds(180, 179, 90, 90);
 		panel.add(btn22);

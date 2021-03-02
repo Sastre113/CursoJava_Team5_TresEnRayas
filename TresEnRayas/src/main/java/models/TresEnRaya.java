@@ -16,7 +16,7 @@ public class TresEnRaya {
 	String [][] tablero;
 	final int MOV_TOTALES = 9;
 	int movimientos;
-	boolean j1 = true;
+	boolean turnoJ1 = true;
 	
 	/**
 	 * @param tablero
@@ -49,8 +49,23 @@ public class TresEnRaya {
 		return victoria;
 	}
 	
-	public void incrementar() {
+	public void incrementarMovimientos() {
 		this.movimientos += 1;
 	}
+	
+	public void siguienteTurno() {
+		if(!this.turnoJ1)
+			this.turnoJ1 = true;
+		else
+			this.turnoJ1 = false;
+	}
+
+	/**
+	 * @return the turnoJ1
+	 */
+	public boolean isTurnoJ1() {
+		return turnoJ1;
+	}
+	
 	
 }
