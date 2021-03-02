@@ -16,7 +16,8 @@ public class TresEnRaya {
 	String [][] tablero;
 	final int MOV_TOTALES = 9;
 	int movimientos;
-
+	boolean j1 = true;
+	
 	/**
 	 * @param tablero
 	 */
