@@ -230,6 +230,7 @@ public class InterfazGrafica extends JFrame {
 		panel_2.add(textFieldJ1);
 		
 		JRadioButton rdbtnHumanoJ1 = new JRadioButton("Humano");
+		rdbtnHumanoJ1.setSelected(true);
 		bgHumCPUJ1.add(rdbtnHumanoJ1);
 		rdbtnHumanoJ1.setBounds(75, 70, 70, 23);
 		panel_2.add(rdbtnHumanoJ1);
@@ -271,6 +272,7 @@ public class InterfazGrafica extends JFrame {
 		panel_2_1.add(rdbtnHumanoJ2);
 		
 		JRadioButton rdbtnCPUJ2 = new JRadioButton("CPU");
+		rdbtnCPUJ2.setSelected(true);
 		bgHumCPUJ2.add(rdbtnCPUJ2);
 		rdbtnCPUJ2.setBounds(145, 74, 70, 23);
 		panel_2_1.add(rdbtnCPUJ2);
@@ -286,12 +288,14 @@ public class InterfazGrafica extends JFrame {
 	public void marcar(JButton boton,int x,int y,String turno) {
 		boton.setText(turno);
 		juego.marcarPosicion(x,y, turno);
+		
 		if(juego.condicionVictoria(turno)) {
 			bloquearBotones(false);
 			JOptionPane.showMessageDialog(null, "Has ganado");
 		}
 		
 		juego.siguienteTurno();
+		lblTurno.setText(juego.obtenerTurno());
 	}
 	
 	public void bloquearBotones(boolean opcion) {
