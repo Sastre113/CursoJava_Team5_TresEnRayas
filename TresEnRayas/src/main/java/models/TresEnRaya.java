@@ -12,18 +12,24 @@ public class TresEnRaya {
 	/**
 	 * 	Atributo tablero
 	 */
-	
-	String [][] tablero;
 	final int MOV_TOTALES = 9;
+	final String JUGADOR1 = "JUGADOR 1";
+	final String JUGADOR2 = "JUGADOR 2";
+	String [][] tablero;
 	int movimientos;
-	boolean turnoJ1 = true;
+	boolean turnoJ1;
+	String nameJ1;
+	String nameJ2;
+	
 	
 	/**
 	 * @param tablero
 	 */
-	public TresEnRaya() {
+	public TresEnRaya(String nombreJ1, String nombreJ2) {
 		this.tablero = new String[3][3];
 		this.movimientos = 0;
+		this.turnoJ1 = true;
+		comprobarNombre(nombreJ1,nombreJ2);
 	}
 	
 	public boolean condicionVictoria(String jugador) {
@@ -54,18 +60,52 @@ public class TresEnRaya {
 	}
 	
 	public void siguienteTurno() {
-		if(!this.turnoJ1)
-			this.turnoJ1 = true;
-		else
-			this.turnoJ1 = false;
+		this.turnoJ1 = (this.isTurnoJ1() == true) ? false: true;
 	}
-
+	
+	private void comprobarNombre(String j1, String j2) {
+		this.nameJ1 = (j1.compareToIgnoreCase("") == 0) ? this.JUGADOR1 : j1;
+		this.nameJ2 = (j2.compareToIgnoreCase("") == 0) ? this.JUGADOR2 : j2;
+	}
+	
 	/**
 	 * @return the turnoJ1
 	 */
 	public boolean isTurnoJ1() {
 		return turnoJ1;
 	}
+
+	/**
+	 * @return the nameJ1
+	 */
+	public String getNameJ1() {
+		return nameJ1;
+	}
+
+	/**
+	 * @return the nameJ2
+	 */
+	public String getNameJ2() {
+		return nameJ2;
+	}
 	
+	public void marcarPosicion(int x, int y,String turno) {
+		this.tablero[x][y] = turno;
+	}
+	
+	public String signoTurno() {
+		return (this.isTurnoJ1() == true) ? "X" : "O"; 
+	}
+	
+	public String obtenerTurno() {
+		String turno = "";
+		
+		if(this.isTurnoJ1() == true)
+			turno += this.getNameJ1();
+		else
+			turno += this.getNameJ2();
+		
+		return turno + ",\n coloca ficha...";
+	}
 	
 }
