@@ -12,10 +12,15 @@ import javax.swing.border.BevelBorder;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.awt.event.ActionEvent;
 
 /**
  * @author Miguel A. Sastre
@@ -23,13 +28,15 @@ import javax.swing.SwingConstants;
  */
 public class InterfazGrafica extends JFrame {
 
+	private TresEnRaya juego;
 	private JPanel contentPane;
 	private JTextField textFieldJ2;
 	private JTextField textFieldJ1;
+	private JLabel lblTurno = new JLabel("Turno");
 	private final ButtonGroup bgHumCPUJ1 = new ButtonGroup();
 	private final ButtonGroup bgHumCPUJ2 = new ButtonGroup();
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-
+	private final ButtonGroup tablero = new ButtonGroup();
+	
 
 
 	/**
@@ -37,7 +44,7 @@ public class InterfazGrafica extends JFrame {
 	 */
 	public InterfazGrafica() {
 		
-		TresEnRaya juego = new TresEnRaya();
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 604, 345);
@@ -58,57 +65,111 @@ public class InterfazGrafica extends JFrame {
 		
 		// Fila 0
 		JButton btn00 = new JButton("");
-		buttonGroup.add(btn00);
+		btn00.setEnabled(false);
+		btn00.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn00,0,0,juego.signoTurno());
+			}
+		});
+		tablero.add(btn00);
 		btn00.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn00.setBounds(10, 11, 90, 90);
 		panel.add(btn00);
 		
 		JButton btn01 = new JButton("");
-		buttonGroup.add(btn01);
+		btn01.setEnabled(false);
+		btn01.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn01,0,1,juego.signoTurno());
+			}
+		});
+		tablero.add(btn01);
 		btn01.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn01.setBounds(94, 11, 90, 90);
 		panel.add(btn01);
 		
 		JButton btn02 = new JButton("");
-		buttonGroup.add(btn02);
+		btn02.setEnabled(false);
+		btn02.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn02,0,2,juego.signoTurno());
+			}
+		});
+		tablero.add(btn02);
 		btn02.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn02.setBounds(180, 11, 90, 90);
 		panel.add(btn02);
 		
 		// Fila 1
 		JButton btn10 = new JButton("");
-		buttonGroup.add(btn10);
+		btn10.setEnabled(false);
+		btn10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn10,1,0,juego.signoTurno());
+			}
+		});
+		tablero.add(btn10);
 		btn10.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn10.setBounds(10, 96, 90, 90);
 		panel.add(btn10);
 		
 		JButton btn11 = new JButton("");
-		buttonGroup.add(btn11);
+		btn11.setEnabled(false);
+		btn11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn11,1,1,juego.signoTurno());
+			}
+		});
+		tablero.add(btn11);
 		btn11.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn11.setBounds(94, 96, 90, 90);
 		panel.add(btn11);
 		
 		JButton btn12 = new JButton("");
-		buttonGroup.add(btn12);
+		btn12.setEnabled(false);
+		btn12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn12,1,2,juego.signoTurno());
+			}
+		});
+		tablero.add(btn12);
 		btn12.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn12.setBounds(180, 96, 90, 90);
 		panel.add(btn12);
 		
 		// Fila 2
 		JButton btn20 = new JButton("");
-		buttonGroup.add(btn20);
+		btn20.setEnabled(false);
+		btn20.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn20,2,0,juego.signoTurno());
+			}
+		});
+		tablero.add(btn20);
 		btn20.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn20.setBounds(10, 179, 90, 90);
 		panel.add(btn20);
 		
 		JButton btn21 = new JButton("");
-		buttonGroup.add(btn21);
+		btn21.setEnabled(false);
+		btn21.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn21,2,1,juego.signoTurno());
+			}
+		});
+		tablero.add(btn21);
 		btn21.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn21.setBounds(94, 179, 90, 90);
 		panel.add(btn21);
 		
 		JButton btn22 = new JButton("");
-		buttonGroup.add(btn22);
+		btn22.setEnabled(false);
+		btn22.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				marcar(btn22,2,2,juego.signoTurno());
+			}
+		});
+		tablero.add(btn22);
 		btn22.setFont(new Font("Arial Black", Font.BOLD, 40));
 		btn22.setBounds(180, 179, 90, 90);
 		panel.add(btn22);
@@ -126,6 +187,18 @@ public class InterfazGrafica extends JFrame {
 		panel_1.setLayout(null);
 		
 		JButton btnNuevaPartida = new JButton("Nueva partida");
+		btnNuevaPartida.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				juego = new TresEnRaya(textFieldJ1.getText(),textFieldJ2.getText());
+				lblTurno.setText(juego.obtenerTurno());
+				Iterator<AbstractButton> it = tablero.getElements().asIterator();
+				while(it.hasNext()) {
+					AbstractButton boton = it.next();
+					boton.setText("");
+				}
+				bloquearBotones(true);
+			}
+		});
 		btnNuevaPartida.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNuevaPartida.setBounds(141, 11, 129, 25);
 		panel_1.add(btnNuevaPartida);
@@ -201,10 +274,31 @@ public class InterfazGrafica extends JFrame {
 		bgHumCPUJ2.add(rdbtnCPUJ2);
 		rdbtnCPUJ2.setBounds(145, 74, 70, 23);
 		panel_2_1.add(rdbtnCPUJ2);
+		lblTurno.setVerticalAlignment(SwingConstants.TOP);
 		
-		JLabel lblTurno = new JLabel("Turno");
-		lblTurno.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTurno.setBounds(28, 18, 87, 14);
+		
+		lblTurno.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTurno.setBounds(10, 18, 121, 29);
 		panel_1.add(lblTurno);
 	}
+	
+	
+	public void marcar(JButton boton,int x,int y,String turno) {
+		boton.setText(turno);
+		juego.marcarPosicion(x,y, turno);
+		if(juego.condicionVictoria(turno)) {
+			bloquearBotones(false);
+			JOptionPane.showMessageDialog(null, "Has ganado");
+		}
+		
+		juego.siguienteTurno();
+	}
+	
+	public void bloquearBotones(boolean opcion) {
+		Iterator<AbstractButton> it = tablero.getElements().asIterator();
+		while(it.hasNext()) {
+			it.next().setEnabled(opcion);
+		}
+	}
+	
 }
