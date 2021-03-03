@@ -352,9 +352,6 @@ public class InterfazGrafica extends JFrame {
 		}
 	}
 
-	private boolean esPosicionValida(int[] posicion) {
-		return (posicion[0] != -1) ? true : false;
-	}
 
 	public AbstractButton obtenerBoton(int x, int y) {
 		return obtenerBoton("btn" + x + y);
