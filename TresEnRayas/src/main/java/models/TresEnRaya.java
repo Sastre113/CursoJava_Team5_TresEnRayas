@@ -32,27 +32,60 @@ public class TresEnRaya {
 		comprobarNombre(nombreJ1,nombreJ2);
 	}
 	
-	public boolean condicionVictoria(String jugador) {
+	public int[] algoritmoCpu(String signo) {
+		int posicion[] = {-1,-1};
+		boolean exit = false;
+		
+		for(int i = 0; i < tablero.length && !exit; i++) {
+			for(int j = 0; j < tablero.length && !exit; j++) {
+				if(tablero[i][j] == null) {
+					tablero[i][j] = signo; 
+					if(condicionVictoria(signo)) {
+						posicion[0] = i;
+						posicion[1] = j;
+						exit = true;
+					}
+					tablero[i][j] = null; 
+				}	
+			}
+		}
+		return posicion;
+	}
+	
+	public boolean esPosicionValida(int [] posicion) {
+		return (posicion[0] != -1) ? true:false;
+	}
+	
+	public boolean posicionOcupada(int x, int y) {
+		return tablero[x][y] != null;
+	}
+	
+	public boolean condicionVictoria(String signoJugador) {
 		boolean victoria = false;
 		
-		if(this.tablero[0][0] == jugador && this.tablero[0][1] == jugador && this.tablero[0][2] == jugador) // 1º Fila
+		if(this.tablero[0][0] == signoJugador && this.tablero[0][1] == signoJugador && this.tablero[0][2] == signoJugador) // 1º Fila
 			victoria = true;
-		if(this.tablero[1][0] == jugador && this.tablero[1][1] == jugador && this.tablero[1][2] == jugador) // 2º Fila
+		if(this.tablero[1][0] == signoJugador && this.tablero[1][1] == signoJugador && this.tablero[1][2] == signoJugador) // 2º Fila
 			victoria = true;
-		if(this.tablero[2][0] == jugador && this.tablero[2][1] == jugador && this.tablero[2][2] == jugador) // 3º Fila
+		if(this.tablero[2][0] == signoJugador && this.tablero[2][1] == signoJugador && this.tablero[2][2] == signoJugador) // 3º Fila
 			victoria = true;
-		if(this.tablero[0][0] == jugador && this.tablero[1][0] == jugador && this.tablero[2][0] == jugador) // 1º Columna
+		if(this.tablero[0][0] == signoJugador && this.tablero[1][0] == signoJugador && this.tablero[2][0] == signoJugador) // 1º Columna
 			victoria = true;
-		if(this.tablero[0][1] == jugador && this.tablero[1][1] == jugador && this.tablero[2][1] == jugador) // 2º Columna
+		if(this.tablero[0][1] == signoJugador && this.tablero[1][1] == signoJugador && this.tablero[2][1] == signoJugador) // 2º Columna
 			victoria = true;
-		if(this.tablero[0][2] == jugador && this.tablero[1][2] == jugador && this.tablero[2][2] == jugador) // 3º Columna
+		if(this.tablero[0][2] == signoJugador && this.tablero[1][2] == signoJugador && this.tablero[2][2] == signoJugador) // 3º Columna
 			victoria = true;
-		if(this.tablero[0][0] == jugador && this.tablero[1][1] == jugador && this.tablero[2][2] == jugador) // 1º Diagonal
+		if(this.tablero[0][0] == signoJugador && this.tablero[1][1] == signoJugador && this.tablero[2][2] == signoJugador) // 1º Diagonal
 			victoria = true;
-		if(this.tablero[0][2] == jugador && this.tablero[1][1] == jugador && this.tablero[2][0] == jugador) // 2º Diagonal
+		if(this.tablero[0][2] == signoJugador && this.tablero[1][1] == signoJugador && this.tablero[2][0] == signoJugador) // 2º Diagonal
 			victoria = true;
 		
 		return victoria;
+	}
+	
+	
+	public boolean quedanMovimientos() {
+		return this.movimientos < this.MOV_TOTALES;
 	}
 	
 	public void incrementarMovimientos() {
@@ -95,6 +128,14 @@ public class TresEnRaya {
 	
 	public String signoTurno() {
 		return (this.isTurnoJ1() == true) ? "X" : "O"; 
+	}
+	
+	public String signoContrario() {
+		return (this.isTurnoJ1() == false) ? "X" : "O"; 
+	}
+	
+	public String jugadorTurno() {
+		return (this.isTurnoJ1() == true) ? this.nameJ1:this.nameJ2;
 	}
 	
 	public String obtenerTurno() {
