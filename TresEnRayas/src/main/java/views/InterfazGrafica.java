@@ -37,14 +37,15 @@ public class InterfazGrafica extends JFrame {
 	private final ButtonGroup bgHumCPUJ2 = new ButtonGroup();
 	private final ButtonGroup tablero = new ButtonGroup();
 	
+	private String j1 = "";
+	private String j2 = "";
+
 
 
 	/**
 	 * Create the frame.
 	 */
 	public InterfazGrafica() {
-		
-		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 604, 345);
@@ -65,6 +66,7 @@ public class InterfazGrafica extends JFrame {
 		
 		// Fila 0
 		JButton btn00 = new JButton("");
+		btn00.setActionCommand("btn00");
 		btn00.setEnabled(false);
 		btn00.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -78,6 +80,7 @@ public class InterfazGrafica extends JFrame {
 		
 		JButton btn01 = new JButton("");
 		btn01.setEnabled(false);
+		btn01.setActionCommand("btn01");
 		btn01.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn01,0,1,juego.signoTurno());
@@ -90,6 +93,7 @@ public class InterfazGrafica extends JFrame {
 		
 		JButton btn02 = new JButton("");
 		btn02.setEnabled(false);
+		btn02.setActionCommand("btn02");
 		btn02.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn02,0,2,juego.signoTurno());
@@ -103,6 +107,7 @@ public class InterfazGrafica extends JFrame {
 		// Fila 1
 		JButton btn10 = new JButton("");
 		btn10.setEnabled(false);
+		btn10.setActionCommand("btn10");
 		btn10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn10,1,0,juego.signoTurno());
@@ -115,6 +120,7 @@ public class InterfazGrafica extends JFrame {
 		
 		JButton btn11 = new JButton("");
 		btn11.setEnabled(false);
+		btn11.setActionCommand("btn11");
 		btn11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn11,1,1,juego.signoTurno());
@@ -127,6 +133,7 @@ public class InterfazGrafica extends JFrame {
 		
 		JButton btn12 = new JButton("");
 		btn12.setEnabled(false);
+		btn12.setActionCommand("btn12");
 		btn12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn12,1,2,juego.signoTurno());
@@ -140,6 +147,7 @@ public class InterfazGrafica extends JFrame {
 		// Fila 2
 		JButton btn20 = new JButton("");
 		btn20.setEnabled(false);
+		btn20.setActionCommand("btn20");
 		btn20.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn20,2,0,juego.signoTurno());
@@ -152,6 +160,7 @@ public class InterfazGrafica extends JFrame {
 		
 		JButton btn21 = new JButton("");
 		btn21.setEnabled(false);
+		btn21.setActionCommand("btn21");
 		btn21.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn21,2,1,juego.signoTurno());
@@ -164,6 +173,7 @@ public class InterfazGrafica extends JFrame {
 		
 		JButton btn22 = new JButton("");
 		btn22.setEnabled(false);
+		btn22.setActionCommand("btn22");
 		btn22.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				marcar(btn22,2,2,juego.signoTurno());
@@ -196,7 +206,13 @@ public class InterfazGrafica extends JFrame {
 					AbstractButton boton = it.next();
 					boton.setText("");
 				}
+				
+				j1 = (bgHumCPUJ1.getSelection().getActionCommand().compareToIgnoreCase("Humano") == 0) ? "Humano":"CPU";
+				j2 = (bgHumCPUJ2.getSelection().getActionCommand().compareToIgnoreCase("Humano") == 0) ? "Humano":"CPU";				
 				bloquearBotones(true);
+				
+				if(j1.compareToIgnoreCase("CPU") == 0)
+					cpu();
 			}
 		});
 		btnNuevaPartida.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -231,12 +247,14 @@ public class InterfazGrafica extends JFrame {
 		
 		JRadioButton rdbtnHumanoJ1 = new JRadioButton("Humano");
 		rdbtnHumanoJ1.setSelected(true);
+		rdbtnHumanoJ1.setActionCommand(rdbtnHumanoJ1.getText());
 		bgHumCPUJ1.add(rdbtnHumanoJ1);
 		rdbtnHumanoJ1.setBounds(75, 70, 70, 23);
 		panel_2.add(rdbtnHumanoJ1);
 		
 		JRadioButton rdbtnCPUJ1 = new JRadioButton("CPU");
 		bgHumCPUJ1.add(rdbtnCPUJ1);
+		rdbtnCPUJ1.setActionCommand("CPU");
 		rdbtnCPUJ1.setBounds(145, 70, 70, 23);
 		panel_2.add(rdbtnCPUJ1);
 		
@@ -268,11 +286,13 @@ public class InterfazGrafica extends JFrame {
 		
 		JRadioButton rdbtnHumanoJ2 = new JRadioButton("Humano");
 		bgHumCPUJ2.add(rdbtnHumanoJ2);
+		rdbtnHumanoJ2.setActionCommand("Humano");
 		rdbtnHumanoJ2.setBounds(75, 74, 70, 23);
 		panel_2_1.add(rdbtnHumanoJ2);
 		
 		JRadioButton rdbtnCPUJ2 = new JRadioButton("CPU");
 		rdbtnCPUJ2.setSelected(true);
+		rdbtnCPUJ2.setActionCommand("CPU");
 		bgHumCPUJ2.add(rdbtnCPUJ2);
 		rdbtnCPUJ2.setBounds(145, 74, 70, 23);
 		panel_2_1.add(rdbtnCPUJ2);
@@ -285,15 +305,47 @@ public class InterfazGrafica extends JFrame {
 	}
 	
 	
+	public void cpu() {
+		/*
+		 * 	1. Jugar en el centro siempre que se pueda
+		 *  2. ¿Está CPU puede ganar? Intenta ganar
+		 *  3. CPU tiene que analizar si el jugador contrario puede ganar.
+		 *  4. Posicion Aleatoria
+		 */
+		
+		if(!juego.posicionOcupada(1,1))
+			marcar((JButton) obtenerBoton("btn11"),1,1,juego.signoTurno());
+		
+		
+		
+	}
+	
+	public AbstractButton obtenerBoton(String botonBuscado) {
+		Iterator<AbstractButton> it = tablero.getElements().asIterator();
+		boolean exit = false;
+		AbstractButton boton = null;
+		while(it.hasNext() && !exit) {
+			boton = it.next();
+			if(botonBuscado.compareToIgnoreCase(boton.getActionCommand()) == 0)
+				exit = true;	
+		}
+		
+		return boton;
+	}
+	
 	public void marcar(JButton boton,int x,int y,String turno) {
 		boton.setText(turno);
 		juego.marcarPosicion(x,y, turno);
+		boton.setEnabled(false);
 		
 		if(juego.condicionVictoria(turno)) {
 			bloquearBotones(false);
 			JOptionPane.showMessageDialog(null, "Has ganado");
 		}
-		
+		cambiarTurno();
+	}
+	
+	public void cambiarTurno() {
 		juego.siguienteTurno();
 		lblTurno.setText(juego.obtenerTurno());
 	}

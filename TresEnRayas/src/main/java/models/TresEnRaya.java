@@ -55,6 +55,10 @@ public class TresEnRaya {
 		return victoria;
 	}
 	
+	public boolean posicionOcupada(int x, int y) {
+		return tablero[x][y] != null;
+	}
+	
 	public void incrementarMovimientos() {
 		this.movimientos += 1;
 	}
