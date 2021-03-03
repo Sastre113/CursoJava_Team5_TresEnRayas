@@ -74,7 +74,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn00);
 		btn00.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn00.setBounds(10, 11, 90, 90);
+		btn00.setBounds(10, 10, 87, 87);
 		panel.add(btn00);
 
 		JButton btn01 = new JButton("");
@@ -87,7 +87,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn01);
 		btn01.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn01.setBounds(94, 11, 90, 90);
+		btn01.setBounds(96, 10, 87, 87);
 		panel.add(btn01);
 
 		JButton btn02 = new JButton("");
@@ -100,7 +100,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn02);
 		btn02.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn02.setBounds(180, 11, 90, 90);
+		btn02.setBounds(182, 10, 87, 87);
 		panel.add(btn02);
 
 		// Fila 1
@@ -114,7 +114,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn10);
 		btn10.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn10.setBounds(10, 96, 90, 90);
+		btn10.setBounds(10, 96, 87, 87);
 		panel.add(btn10);
 
 		JButton btn11 = new JButton("");
@@ -127,7 +127,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn11);
 		btn11.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn11.setBounds(94, 96, 90, 90);
+		btn11.setBounds(96, 96, 87, 87);
 		panel.add(btn11);
 
 		JButton btn12 = new JButton("");
@@ -140,7 +140,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn12);
 		btn12.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn12.setBounds(180, 96, 90, 90);
+		btn12.setBounds(182, 96, 87, 87);
 		panel.add(btn12);
 
 		// Fila 2
@@ -154,7 +154,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn20);
 		btn20.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn20.setBounds(10, 179, 90, 90);
+		btn20.setBounds(10, 182, 87, 87);
 		panel.add(btn20);
 
 		JButton btn21 = new JButton("");
@@ -167,7 +167,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn21);
 		btn21.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn21.setBounds(94, 179, 90, 90);
+		btn21.setBounds(96, 182, 87, 87);
 		panel.add(btn21);
 
 		JButton btn22 = new JButton("");
@@ -180,7 +180,7 @@ public class InterfazGrafica extends JFrame {
 		});
 		tablero.add(btn22);
 		btn22.setFont(new Font("Arial Black", Font.BOLD, 40));
-		btn22.setBounds(180, 179, 90, 90);
+		btn22.setBounds(182, 182, 87, 87);
 		panel.add(btn22);
 
 		///////////////////////////////////////////////////////
@@ -217,12 +217,12 @@ public class InterfazGrafica extends JFrame {
 			}
 		});
 		btnNuevaPartida.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNuevaPartida.setBounds(141, 11, 129, 25);
+		btnNuevaPartida.setBounds(55, 10, 170, 25);
 		panel_1.add(btnNuevaPartida);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel_2.setBounds(10, 58, 260, 100);
+		panel_2.setBounds(10, 68, 260, 95);
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 
@@ -261,7 +261,7 @@ public class InterfazGrafica extends JFrame {
 
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel_2_1.setBounds(10, 169, 260, 100);
+		panel_2_1.setBounds(10, 174, 260, 95);
 		panel_1.add(panel_2_1);
 		panel_2_1.setLayout(null);
 
@@ -277,7 +277,7 @@ public class InterfazGrafica extends JFrame {
 
 		JLabel lblTipoJ2 = new JLabel("Tipo:");
 		lblTipoJ2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTipoJ2.setBounds(10, 73, 70, 20);
+		lblTipoJ2.setBounds(10, 68, 70, 20);
 		panel_2_1.add(lblTipoJ2);
 
 		textFieldJ2 = new JTextField();
@@ -288,19 +288,20 @@ public class InterfazGrafica extends JFrame {
 		JRadioButton rdbtnHumanoJ2 = new JRadioButton("Humano");
 		bgHumCPUJ2.add(rdbtnHumanoJ2);
 		rdbtnHumanoJ2.setActionCommand("Humano");
-		rdbtnHumanoJ2.setBounds(75, 74, 70, 23);
+		rdbtnHumanoJ2.setBounds(73, 69, 70, 23);
 		panel_2_1.add(rdbtnHumanoJ2);
 
 		JRadioButton rdbtnCPUJ2 = new JRadioButton("CPU");
 		rdbtnCPUJ2.setSelected(true);
 		rdbtnCPUJ2.setActionCommand("CPU");
 		bgHumCPUJ2.add(rdbtnCPUJ2);
-		rdbtnCPUJ2.setBounds(145, 74, 70, 23);
+		rdbtnCPUJ2.setBounds(146, 69, 70, 23);
 		panel_2_1.add(rdbtnCPUJ2);
+		lblTurno.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTurno.setVerticalAlignment(SwingConstants.TOP);
 
 		lblTurno.setHorizontalAlignment(SwingConstants.LEFT);
-		lblTurno.setBounds(10, 18, 121, 29);
+		lblTurno.setBounds(10, 38, 177, 19);
 		panel_1.add(lblTurno);
 	}
 
