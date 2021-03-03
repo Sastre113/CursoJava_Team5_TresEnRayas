@@ -35,11 +35,11 @@ public class TresEnRaya {
 	public int[] algoritmoCpu(String signo) {
 		int posicion[] = {-1,-1};
 		boolean exit = false;
-		
+
 		for(int i = 0; i < tablero.length && !exit; i++) {
 			for(int j = 0; j < tablero.length && !exit; j++) {
 				if(tablero[i][j] == null) {
-					tablero[i][j] = signo; 
+					tablero[i][j] = signo;
 					if(condicionVictoria(signo)) {
 						posicion[0] = i;
 						posicion[1] = j;
@@ -148,5 +148,15 @@ public class TresEnRaya {
 		
 		return turno + ",\n coloca ficha...";
 	}
+	
+	public Runnable r = new Runnable() {
+        public void run() {
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    };
 	
 }

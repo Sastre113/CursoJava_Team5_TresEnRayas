@@ -5,7 +5,9 @@ import java.awt.EventQueue;
 import views.InterfazGrafica;
 
 /**
- * Hello world!
+ * @author  Ingrid Dominguez
+ * 			Miguel A. Sastre
+ * 			Vyacheslav Khaydorov
  *
  */
 public class App 
