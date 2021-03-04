@@ -413,6 +413,7 @@ public class InterfazGrafica extends JFrame {
 	 */
 
 	//Variante alternativa para llamar al metodo obtenerBoton
+  
 	public AbstractButton obtenerBoton(int x, int y) {
 		return obtenerBoton("btn" + x + y);
 	}
