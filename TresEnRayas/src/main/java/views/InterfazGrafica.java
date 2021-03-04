@@ -347,6 +347,7 @@ public class InterfazGrafica extends JFrame {
 		lblTurno.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTurno.setVerticalAlignment(SwingConstants.TOP);
 
+		//Etiqueta para recordar el turno del jugador
 		lblTurno.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTurno.setBounds(10, 38, 260, 19);
 		panel_1.add(lblTurno);
@@ -406,11 +407,17 @@ public class InterfazGrafica extends JFrame {
 			} while (!encontrada);
 		}
 	}
+	
+	/**
+	 * Metodos varios
+	 */
 
+	//Variante alternativa para llamar al metodo obtenerBoton
 	public AbstractButton obtenerBoton(int x, int y) {
 		return obtenerBoton("btn" + x + y);
 	}
 
+	//Metodo para obtener los botones declarados en el constructor de InterfazGrafica
 	private AbstractButton obtenerBoton(String botonBuscado) {
 		Iterator<AbstractButton> it = tablero.getElements().asIterator();
 		boolean exit = false;
@@ -424,7 +431,9 @@ public class InterfazGrafica extends JFrame {
 		return boton;
 	}
 
-	//
+	//Metodo que indica la secuencia que se produce al marcar un boton:
+	//añadir signo al boton en funcion del turno, marcarlo en la matriz tablero (metodo marcarPosicion), incrementar el contador
+	//de movimientos para saber cuan cerca estamos del final, desactivar el boton marcado y comprobar condicion de victoria
 	public void marcar(JButton boton, int x, int y, String turno) {
 		boton.setText(turno);
 		juego.marcarPosicion(x, y, turno);

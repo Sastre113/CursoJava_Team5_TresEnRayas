@@ -149,14 +149,4 @@ public class TresEnRaya {
 		return turno + ",\n coloca ficha...";
 	}
 	
-	public Runnable r = new Runnable() {
-        public void run() {
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    };
-	
 }
